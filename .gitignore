@@ -1,2 +1,6 @@
-venv
-.evngit init
+venv/
+__pycache__/
+*.pyc
+.env
+logs/
+artifacts/
