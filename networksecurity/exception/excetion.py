@@ -18,10 +18,11 @@ class NetworkException(Exception):
         return self.error_message  # here the error message get print
     
     
- 
+''' 
 if __name__ =="__main__":
     try:
         a=1/0
     except Exception as e:
         logging.info("Devide by zero error   in expection folder ")
         raise NetworkException(e,sys)
+'''

@@ -3,5 +3,6 @@ pandas
 numpy
 pymongo
 certifi
+pymongo[srv]==3.12
 
--e .
+## -e .  # enable and execute it all the end of our project  
