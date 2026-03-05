@@ -63,6 +63,5 @@ if __name__ == '__main__':
     collection = "NetworkData"
     data_extract_obj = NetworkDataExtract()
     records = data_extract_obj.csv_to_json_conveter( file_path = file_path)
-    print(records)
     no_of_records = data_extract_obj.insert_data_monfoDB(records, database, collection)
-    print(no_of_records)
+    # print(no_of_records)
