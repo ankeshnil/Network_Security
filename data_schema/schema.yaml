@@ -1,0 +1,71 @@
+# The schema.yaml file is used in a machine learning pipeline to define and validate the structure of the dataset before the model training process starts. 
+# It acts like a rule book that specifies what the dataset should look like, including the column names, number of columns, data types of each column, the target column, and sometimes columns that need to be dropped. 
+# In an MLOps project, data can come from sources such as MongoDB, CSV files, or APIs, and sometimes the structure of the data may change accidentally.
+# The schema.yaml file helps detect these problems during the data validation stage of the pipeline. It checks whether the data extracted from the database matches the expected structure defined in the schema.
+# So yes, it verifies whether the variables (columns) are the same, whether the number of columns is correct, and whether the data types match the expected format.
+# If the dataset does not follow the schema rules, the pipeline can stop and raise an error,
+columns:
+  having_IP_Address: int64
+  URL_Length: int64
+  Shortining_Service: int64
+  having_At_Symbol: int64
+  double_slash_redirecting: int64
+  Prefix_Suffix: int64
+  having_Sub_Domain: int64
+  SSLfinal_State: int64
+  Domain_registration_length: int64
+  Favicon: int64
+  port: int64
+  HTTPS_token: int64
+  Request_URL: int64
+  URL_of_Anchor: int64
+  Links_in_tags: int64
+  SFH: int64
+  Submitting_to_email: int64
+  Abnormal_URL: int64
+  Redirect: int64
+  on_mouseover: int64
+  RightClick: int64
+  popUpWidnow: int64
+  Iframe: int64
+  age_of_domain: int64
+  DNSRecord: int64
+  web_traffic: int64
+  Page_Rank: int64
+  Google_Index: int64
+  Links_pointing_to_page: int64
+  Statistical_report: int64
+  Result: int64
+
+numerical_columns:
+  - having_IP_Address
+  - URL_Length
+  - Shortining_Service
+  - having_At_Symbol
+  - double_slash_redirecting
+  - Prefix_Suffix
+  - having_Sub_Domain
+  - SSLfinal_State
+  - Domain_registration_length
+  - Favicon
+  - port
+  - HTTPS_token
+  - Request_URL
+  - URL_of_Anchor
+  - Links_in_tags
+  - SFH
+  - Submitting_to_email
+  - Abnormal_URL
+  - Redirect
+  - on_mouseover
+  - RightClick
+  - popUpWidnow
+  - Iframe
+  - age_of_domain
+  - DNSRecord
+  - web_traffic
+  - Page_Rank
+  - Google_Index
+  - Links_pointing_to_page
+  - Statistical_report
+  - Result
