@@ -66,31 +66,53 @@ class DataValicationConfig:
             traning_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
             traning_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME 
         )
+     
+     
+class DataTransformationConfig:
+    def __init__(self, training_pipeline_config : TrainingPipelineConfig):
+        self.data_transformation_dir: str = os.path.join(training_pipeline_config.artifact_dir, traning_pipeline.DATA_TRANSFORMATION_DIR_NAME)
+        self.transfrom_train_file_path: str = os.path.join(self.data_transformation_dir, traning_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
+                                                traning_pipeline.TRAIN_FILE_NAME.replace("csv", "npy"),)
+        self.transfrom_test_file_path: str = os.path.join(self.data_transformation_dir, traning_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR,
+                                                traning_pipeline.TEST_FILE_NAME.replace("csv", "npy"),)
+        self.transfrom_obj_file_path: str= os.path.join(self.data_transformation_dir, traning_pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
+                                                        traning_pipeline.PREPROCESSING_OBJECT_FILE_NAME)
+     
+     
         
 '''
 Artifacts/
 │
-└── 03_04_2026_18_10_22/                ← timestamp created by TrainingPipelineConfig
+└── 03_09_2026_09_30_15/                 ← timestamp created by TrainingPipelineConfig
     │
     ├── data_ingestion/
     │   │
     │   ├── feature_store/
-    │   │       └── phisingData.csv     ← feature_store_file_path
+    │   │       └── phisingData.csv      ← feature_store_file_path
     │   │
     │   └── ingested/
-    │           ├── train.csv           ← train_file_path
-    │           └── test.csv            ← test_file_path
+    │           ├── train.csv            ← train_file_path
+    │           └── test.csv             ← test_file_path
     │
-    └── data_validation/
+    ├── data_validation/
+    │   │
+    │   ├── validated/
+    │   │       ├── train.csv            ← valid_train_file_path
+    │   │       └── test.csv             ← valid_test_file_path
+    │   │
+    │   ├── invalid/
+    │   │       ├── train.csv            ← invalid_train_file_path
+    │   │       └── test.csv             ← invalid_test_file_path
+    │   │
+    │   └── drift_report/
+    │           └── report.yaml          ← drift_report_file_path
+    │
+    └── data_transformation/
         │
-        ├── validated/
-        │       ├── train.csv           ← valid_train_file_path
-        │       └── test.csv            ← valid_test_file_path
+        ├── transformed/
+        │       ├── train.npy            ← transformed_train_file_path
+        │       └── test.npy             ← transformed_test_file_path
         │
-        ├── invalid/
-        │       ├── train.csv           ← invalid_train_file_path
-        │       └── test.csv            ← invalid_test_file_path
-        │
-        └── drift_report/
-                └── report.yaml         ← drift_report_file_path
+        └── transformed_object/
+                └── preprocessing.pkl    ← transformed_object_file_path
 '''

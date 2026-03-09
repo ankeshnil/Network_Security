@@ -46,7 +46,11 @@ class NetworkDataExtract():
             self.collection = collection
             
             # Create a connection to MongoDB using the database URL and store that connection inside this class
-            self.mongo_client = pymongo.MongoClient(MONGO_DB_URL)
+            self.mongo_client = pymongo.MongoClient(
+                MONGO_DB_URL,
+                tls=True,
+                tlsCAFile=ca
+            )
             self.database = self.mongo_client[self.database] # Open the NetworkSecurity database.
             self.collection = self.database[self.collection] # Collections are like tables in SQL. and opne the collection
             
