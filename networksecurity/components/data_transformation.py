@@ -31,7 +31,7 @@ class DataTransformation:
         except Exception as e:
             raise NetworkException(e,sys)
         
-    def get_data_trnasformer_object(cls) -> Pipeline:
+    def get_data_trnasformer_object(self) -> Pipeline:
         """
         It initialises a KNNImputer object with the parameters specified in the
         training_pipeline.py file and returns a Pipeline object with the
@@ -69,7 +69,10 @@ class DataTransformation:
             # Save numpy array data
             save_numoy_array_data(self.data_transformation_config.transfrom_train_file_path, array= train_arr,)
             save_numoy_array_data(self.data_transformation_config.transfrom_test_file_path, array= test_arr,)
-            save_numoy_array_data(self.data_transformation_config.transfrom_obj_file_path, preprocessor_object)
+            save_object(
+    file_path=self.data_transformation_config.transfrom_obj_file_path,
+    obj=preprocessor_object
+)
             
             # preparing artifact    output
             data_transformation_artifact = DataTransformationArtifact(

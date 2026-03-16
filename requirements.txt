@@ -8,6 +8,7 @@ scipy
 pyyaml
 matplotlib
 flask
+mlflow
 
 
 ## -e .  # enable and execute it all the end of our project  

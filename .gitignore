@@ -1,6 +1,31 @@
-venv/
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
 .env
+
+# Logs
 logs/
+
+# ML pipeline artifacts
+Artifacts/
 artifacts/
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

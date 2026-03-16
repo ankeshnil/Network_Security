@@ -78,7 +78,16 @@ class DataTransformationConfig:
         self.transfrom_obj_file_path: str= os.path.join(self.data_transformation_dir, traning_pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
                                                         traning_pipeline.PREPROCESSING_OBJECT_FILE_NAME)
      
+
+class ModelTrainerConfig:
+    def __init__(self, training_pipeline_config: TrainingPipelineConfig):
+        self.model_trainer_dir : str = os.path.join(training_pipeline_config.artifact_dir,
+                                        traning_pipeline.MODEL_TRAINER_DIR_NAME)
+        self.train_model_file_path : str = os.path.join(self.model_trainer_dir, traning_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR,
+                                                  traning_pipeline.MODEL_FILE_NAME)
      
+        self.expected_accurecy : float = traning_pipeline.MODEL_TRAINER_EXPECTED_SCORE
+        self.overfiting_underfiting_thresold = traning_pipeline.MODEL_TRAINER_OVER_FIITING_UNDER_FITTING_THRESHOLD
         
 '''
 Artifacts/

@@ -7,6 +7,8 @@ from networksecurity.entity.comfig_entity import Dataingestionconfig, DataValica
 from networksecurity.entity.comfig_entity import TrainingPipelineConfig
 import yaml
 import sys
+from networksecurity.components.model_train import ModelTrainer
+from networksecurity.entity.comfig_entity import ModelTrainerConfig
 
 
 if __name__ == "__main__":
@@ -35,6 +37,16 @@ if __name__ == "__main__":
         data_transformation_artifact = data_transformation.initiate_data_transformation() 
         logging.info("Data transformation Completed")
         print(data_transformation_artifact)
+        
+        logging.info("Model Training started")
+
+        model_trainer_config = ModelTrainerConfig(trainingpipelineconfig)
+        model_trainer = ModelTrainer(
+            model_trainer_config=model_trainer_config,
+            data_transformation_artifact=data_transformation_artifact
+        )
+        model_trainer_artifact = model_trainer.initiated_model_trainer()
+        logging.info("Model Training artifact created")
 
     except Exception as e:
         raise NetworkException(e, sys)
