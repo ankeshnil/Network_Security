@@ -9,6 +9,9 @@ pyyaml
 matplotlib
 flask
 mlflow
+dagshub
+uvicorn
+fastapi
 
 
 ## -e .  # enable and execute it all the end of our project  

@@ -24,6 +24,9 @@ from sklearn.ensemble import (
     RandomForestClassifier,
 )
 
+import dagshub
+dagshub.init(repo_owner='ankeshnil00', repo_name='Network_Security', mlflow=True)
+
 
 class ModelTrainer:
     def __init__(self, model_trainer_config: ModelTrainerConfig, 
@@ -142,6 +145,8 @@ class ModelTrainer:
                 file_path=self.model_trainer_config.train_model_file_path,
                 obj=network_model
             )
+            
+            save_object("final_model/model.pkl", best_model)
 
             # Create artifact
             model_trainer_artifact = ModelTrainerArtifact(

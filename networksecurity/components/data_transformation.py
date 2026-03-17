@@ -49,6 +49,14 @@ class DataTransformation:
         try:
             train_df = DataTransformation.read_data(self.data_validation_artifact.valid_train_file_path)
             test_df =  DataTransformation.read_data(self.data_validation_artifact.valid_test_file_path)
+            
+            # ✅ ADD THIS BLOCK (VERY IMPORTANT)
+            if "Unnamed: 0" in train_df.columns:
+                train_df = train_df.drop(columns=["Unnamed: 0"])
+
+            if "Unnamed: 0" in test_df.columns:
+                test_df = test_df.drop(columns=["Unnamed: 0"])
+                
             # traning dataframe
             input_feature_train_df = train_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_feature_train_df = train_df[TARGET_COLUMN]
@@ -73,7 +81,7 @@ class DataTransformation:
     file_path=self.data_transformation_config.transfrom_obj_file_path,
     obj=preprocessor_object
 )
-            
+            save_object("final_model/preprocessor.pkl", preprocessor_object)
             # preparing artifact    output
             data_transformation_artifact = DataTransformationArtifact(
                 transformed_object_file_path= self.data_transformation_config.transfrom_obj_file_path,
