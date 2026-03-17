@@ -12,6 +12,8 @@ mlflow
 dagshub
 uvicorn
 fastapi
+requests
+python-whois
 
 
 ## -e .  # enable and execute it all the end of our project  
